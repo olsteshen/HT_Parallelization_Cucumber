@@ -1,1 +1,5 @@
 /target/
+/.idea/
+*.iml
+/tager/
+/tager/cucumber-reports/

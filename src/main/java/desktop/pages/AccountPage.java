@@ -1,14 +1,10 @@
 package desktop.pages;
 
 import abstractclasses.page.AbstractPage;
-import desktop.fragments.NavigationBarFragment;
-import driver.SingletonDriver;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static constants.Constants.SIGN_IN_PAGE_URL;
 
 
 public class AccountPage extends AbstractPage {
@@ -20,15 +16,14 @@ public class AccountPage extends AbstractPage {
     public WebElement passwordField;
     @FindBy(xpath = "//input[@id='signInSubmit']")
     public WebElement submitButton;
-    NavigationBarFragment navigationBar = new NavigationBarFragment(driver);
+
 
     public AccountPage(WebDriver driver) {
         super(driver);
-        SingletonDriver.getInstance();
     }
 
-    public void checkAccountPageURL() {
-        Assertions.assertEquals(SIGN_IN_PAGE_URL, SingletonDriver.getInstance().getCurrentUrl(), "Wrong page url" );
+    public String pageURL() {
+        return getPageUrl();
     }
 
     public void enterEmail(String email) {

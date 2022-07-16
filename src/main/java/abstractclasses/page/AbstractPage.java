@@ -1,7 +1,12 @@
 package abstractclasses.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+
+import static constants.Constants.BOOK_ITEM_TITLE;
+import static java.lang.String.format;
 
 public abstract class AbstractPage {
     protected WebDriver driver;
@@ -18,7 +23,7 @@ public abstract class AbstractPage {
     }
 
     public String getPageUrl() {
-        return pageUrl;
+        return driver.getCurrentUrl();
     }
 
     public String setPageUrlPattern(String pageUrlPattern) {
@@ -28,4 +33,9 @@ public abstract class AbstractPage {
     public String getPageUrlPattern() {
         return pageUrlPattern;
     }
+
+    public WebElement getProductTile(String name){
+        return driver.findElement(By.xpath(format(BOOK_ITEM_TITLE, name)));
+    }
+
 }

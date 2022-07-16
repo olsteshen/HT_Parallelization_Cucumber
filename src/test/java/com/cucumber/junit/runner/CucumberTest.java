@@ -8,8 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber-reports", "json:tager/cucumber-reports/CucumberTest.json"},
         monochrome = true,
+        tags= "@Parallel",
         glue = "com.cucumber.junit",
-        features = "classpath:com/cucumber.junit.features"
+        features = "src/test/resources/com/cucumber/junit/features"
 )
 public class CucumberTest {
 }
